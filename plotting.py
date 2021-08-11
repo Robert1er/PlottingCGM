@@ -4,7 +4,7 @@ import gmplot
 
 def plotting_gmap(lat,long,SG,outputname):
 
-    gmap = gmplot.GoogleMapPlotter(sum(lat)/len(lat), sum(long)/len(long), 13)
+    gmap = gmplot.GoogleMapPlotter(sum(lat)/len(lat), sum(long)/len(long), 15)
 
 
     #gmap.scatter(lat, long, edge_width=3, marker=False)
@@ -14,7 +14,7 @@ def plotting_gmap(lat,long,SG,outputname):
         a=[lat[i]]
         b=[long[i]]
         #print(color(SG[i]),SG[i])
-        gmap.scatter(a,b,color(SG[i]) , edge_width=3, marker=False)
+        gmap.scatter(a,b,color(SG[i]) , size=5, edge_width=2, marker=False)
         i+=1
 
     gmap.draw(outputname)
