@@ -4,21 +4,27 @@ import pytz
 from tzwhere import tzwhere
 
 
+#def find_timezone(lat,long):
+#    tz = tzwhere.tzwhere()
+#    timezone_str = tz.tzNameAt(lat, long)
+#    #print(timezone_str)
+#
+#    local_timezone = pytz.timezone(timezone_str)
+#    return local_timezone
+
+# replaced because of deprecated numpy array problem
 def find_timezone(lat,long):
-    tz = tzwhere.tzwhere()
-    timezone_str = tz.tzNameAt(lat, long)
-    #print(timezone_str)
-
-    local_timezone = pytz.timezone(timezone_str)
+    local_timezone = pytz.timezone('US/Eastern')
     return local_timezone
-
 
   
 def gmt_to_local(time,local_timezone):
 
     gmt=pytz.timezone('GMT')
 
-    time_gmt=gmt.localize(time)
+#replaced because timestamps have changed in strava
+    #time_gmt=gmt.localize(time)
+    time_gmt=time
     
     time_local=time_gmt.astimezone(local_timezone)
 
